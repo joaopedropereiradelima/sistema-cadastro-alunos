@@ -2,7 +2,7 @@ const formulario = document.getElementById("formAluno");
 const campoNome = document.getElementById("nome");
 const campoEmail = document.getElementById("email");
 const listaAlunos = document.getElementById("listaAlunos");
-
+const campoCurso = document.getElementById("curso");
 formulario.addEventListener("submit", cadastrarAluno);
 
 function cadastrarAluno(event) {
@@ -10,7 +10,7 @@ function cadastrarAluno(event) {
 
     const nome = campoNome.value.trim();
     const email = campoEmail.value.trim();
-
+    const curso = campoCurso.options[campoCurso.selectedIndex].text;
     if (nome === "" || email === "") {
         alert("Preencha todos os campos.");
         return;
@@ -18,7 +18,7 @@ function cadastrarAluno(event) {
 
     const aluno = document.createElement("li");
 
-    aluno.textContent = `${nome} - ${email}`;
+    aluno.textContent = `${nome} - ${email} - ${curso}`;
 
     listaAlunos.appendChild(aluno);
 
